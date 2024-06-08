@@ -10,6 +10,7 @@ COPY packages ./packages
 RUN npm install
 
 RUN npm run db:generate
+RUN npm run validation-build 
 
 RUN npm run admin-app-build
 RUN npm run server-build
