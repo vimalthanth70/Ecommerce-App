@@ -27,7 +27,7 @@ export default function SignIn() {
     <div>
         <div className='w-96 ml-3 mt-3'>
           <CustomForm submitHandler={submitHandler} formTitle='Log In' buttonName='Login' fields={fields} initialValues={{email:'',password:''}} />
-          <Button onClick={()=>signIn('google',{redirect:true,callbackUrl:"http://localhost:3000"})} className='w-[300px] py-3 mt-2' variant="secondary">Sign In With Google</Button><br />
+          <Button onClick={()=>signIn('google',{redirect:true,callbackUrl:"http://app-admin.devxvimal.online"})} className='w-[300px] py-3 mt-2' variant="secondary">Sign In With Google</Button><br />
           <Button className='mt-2' variant="secondary" onClick={()=>router.push('/auth/signup')}>Signup</Button>
         </div>
     </div>

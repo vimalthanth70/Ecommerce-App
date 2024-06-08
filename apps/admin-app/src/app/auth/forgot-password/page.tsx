@@ -9,7 +9,7 @@ export default function ForgotPassword() {
     ]
     const handleSubmit = async(values:any)=>{
       try{
-        const response = await axios.post('http://localhost:3001/api/v1/admin/auth/forgot-password',{email:values.email})
+        const response = await axios.post('http://app-server.devxvimal.online/api/v1/admin/auth/forgot-password',{email:values.email})
         if(response.data){
           alert(response.data.message)
         }

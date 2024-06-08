@@ -19,7 +19,7 @@ export default function ResetPassword() {
     ]
     const handleSubmit = async(values:any)=>{
       console.log(values)
-      const response = await axios.post(`http://localhost:3001/api/v1/admin/auth/reset-password?token=${searchParams[1]}`,{password:values.password})
+      const response = await axios.post(`http://app-server.devxvimal.online/api/v1/admin/auth/reset-password?token=${searchParams[1]}`,{password:values.password})
       if(response.data.message){
         router.push('/auth/signin')
       } 

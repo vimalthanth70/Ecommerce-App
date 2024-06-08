@@ -44,7 +44,7 @@ export default function SignUp() {
     const router = useRouter()
     const submitHandler = async(values:any)=>{
         try{
-            const response = await axios.post(`http://localhost:3001/api/v1/admin/auth/signup`,{...values})
+            const response = await axios.post(`http://app-server.devxvimal.online/api/v1/admin/auth/signup`,{...values})
             console.log(response)
         }catch(err){
             console.log(err)
@@ -54,7 +54,7 @@ export default function SignUp() {
     <div>
         <div className='w-96 mt-3 ml-3'>
             <CustomForm submitHandler={submitHandler} formTitle='Sign Up' buttonName='Sign Up' fields={fields} initialValues={initialValues} />
-            <Button onClick={()=>signIn('google',{redirect:true,callbackUrl:"http://localhost:3000"})} className='w-[300px] py-3 mt-2' variant="secondary">Sign In With Google</Button><br />
+            <Button onClick={()=>signIn('google',{redirect:true,callbackUrl:"http://app-admin.devxvimal.online"})} className='w-[300px] py-3 mt-2' variant="secondary">Sign In With Google</Button><br />
             <Button  className='mt-2' variant="secondary" onClick={()=>router.push('/auth/signin')}>singin</Button>
 
         </div>

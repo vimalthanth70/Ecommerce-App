@@ -19,7 +19,7 @@ export const nextAuthOptions = {
               const baseUrl = process.env.NETX_APP_BASE_URL || ''
               console.log(credentials,'data28')
               try{
-                const res = await axios.post(`http://localhost:3001/api/v1/admin/auth/signin`,{
+                const res = await axios.post(`http://app-server.devxvimal.online/api/v1/admin/auth/signin`,{
                   email:credentials?.username,
                   password:credentials?.password
                 })
