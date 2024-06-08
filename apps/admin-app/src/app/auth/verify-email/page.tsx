@@ -16,7 +16,7 @@ export default function VerifyImahel() {
   }
   const handleVerifyEmail = async()=>{
     try{
-      const response = await axios.post(`http://app-server.devxvimal.online/api/v1/admin/auth/verify-email?token=${searchParams[1]}`)
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}api/v1/admin/auth/verify-email?token=${searchParams[1]}`)
       if(response.data.data.email){
         router.push('/signin')
       } 

@@ -9,7 +9,8 @@ export default function ForgotPassword() {
     ]
     const handleSubmit = async(values:any)=>{
       try{
-        const response = await axios.post('http://app-server.devxvimal.online/api/v1/admin/auth/forgot-password',{email:values.email})
+        console.log(process.env.GOOGLE_CLIENT_ID,process.env.NEXT_PUBLIC_BASE_URL,'data12')
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}api/v1/admin/auth/forgot-password`,{email:values.email})
         if(response.data){
           alert(response.data.message)
         }

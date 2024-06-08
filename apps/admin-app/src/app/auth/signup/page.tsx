@@ -44,7 +44,7 @@ export default function SignUp() {
     const router = useRouter()
     const submitHandler = async(values:any)=>{
         try{
-            const response = await axios.post(`http://app-server.devxvimal.online/api/v1/admin/auth/signup`,{...values})
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}api/v1/admin/auth/signup`,{...values})
             console.log(response)
         }catch(err){
             console.log(err)

@@ -16,10 +16,11 @@ export const nextAuthOptions = {
               password: { label: "Password", type: "password" }
             },
             async authorize(credentials, req) {
-              const baseUrl = process.env.NETX_APP_BASE_URL || ''
+              console.log(process.env.GOOGLE_CLIENT_ID,process.env.NEXT_PUBLIC_BASE_URL,'data19')
+              const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || ''
               console.log(credentials,'data28')
               try{
-                const res = await axios.post(`http://app-server.devxvimal.online/api/v1/admin/auth/signin`,{
+                const res = await axios.post(`${baseUrl}api/v1/admin/auth/signin`,{
                   email:credentials?.username,
                   password:credentials?.password
                 })
