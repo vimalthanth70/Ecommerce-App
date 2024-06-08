@@ -1,0 +1,6 @@
+-- CreateEnum
+CREATE TYPE "AuthType" AS ENUM ('GOOGLE', 'CREDENTIALS');
+
+-- AlterTable
+ALTER TABLE "Admin" ADD COLUMN     "authType" "AuthType" NOT NULL DEFAULT 'CREDENTIALS',
+ALTER COLUMN "password" DROP NOT NULL;
