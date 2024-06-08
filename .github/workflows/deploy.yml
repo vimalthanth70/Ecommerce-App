@@ -32,16 +32,18 @@ jobs:
     - name: Verify Pushed Image
       run: docker pull ${{ secrets.DOCKER_ADMIN_USERNAME }}/ecommerceapp:latest
 
-    # - name: Deploy to EC2
-    #   uses: appleboy/ssh-action@master
-    #   with:
-    #     host: ${{ secrets.SSH_HOST }}
-    #     username: ${{ secrets.SSH_USERNAME }}
-    #     key: ${{ secrets.SSH_KEY }}
-    #     script: |
-    #       sudo docker pull ${{ secrets.DOCKER_ADMIN_USERNAME }}/ecommerce-app:latest
-    #       sudo docker stop ecommerce-app || true
-    #       sudo docker rm ecommerce-app || true
-    #       sudo docker run -d --name ecommerce-app -p 3001:3001 -p 3002:3002 ${{ secrets.DOCKER_ADMIN_USERNAME }}/ecommerce-app:latest
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          sudo docker pull ${{ secrets.DOCKER_ADMIN_USERNAME }}/ecommerceapp:latest
+          sudo docker stop ecommerceapp || true
+          sudo docker rm ecommerceapp || true
+          sudo docker run -d --name ecommerceapp -p 3000:3000 -e NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} -e GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }} -e GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }} -e NETX_APP_BASE_URL=${{ secrets.NETX_APP_BASE_URL }}  ${{ secrets.DOCKER_ADMIN_USERNAME }}/ecommerceapp:latest
+          sudo docker run -d --name ecommerceapp -p 3001:3001 -e DATABASE_URL=${{ secrets.DATABASE_URL }} -e SALT=${{ secrets.SALT }} -e USER_EMAIL=${{ secrets.USER_EMAIL }} -e USER_EMAIL_PASSWORD=${{ secrets.USER_EMAIL_PASSWORD }} -e JWT_SECRET=${{ secrets.JWT_SECRET }} -e ADMIN_CLIENT_URL=${{ secrets.ADMIN_CLIENT_URL }} ${{ secrets.DOCKER_ADMIN_USERNAME }}/ecommerceapp:latest
 
+    
     
