@@ -27,5 +27,5 @@ jobs:
       - name: Build the admin app
         run: npm run admin-app-build
 
-      - name: Build the user app
+      - name: Build the server app
         run: npm run server-build
