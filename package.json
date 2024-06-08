@@ -5,6 +5,7 @@
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "validation-build":"cd ./packages/validation && npm run build",
     "admin-app-build": "cd ./apps/admin-app && npm run build",
     "server-build": "cd ./apps/server && npm run build",
     "admin-app-start": "cd ./apps/admin-app && npm run start",
