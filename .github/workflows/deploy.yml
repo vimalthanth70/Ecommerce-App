@@ -40,6 +40,6 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           sudo docker pull ${{ secrets.DOCKER_ADMIN_USERNAME }}/ecommerceapp:latest
-          sudo docker stop ecommerce-app-main || true
-          sudo docker rm ecommerce-app-main || true
-          sudo docker run -d --name ecommerce-app-main -p 3000:3000 -e NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} -e GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }} -e GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }} -e NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }} -p 3001:3001 -e DATABASE_URL=${{ secrets.DATABASE_URL }} -e SALT=${{ secrets.SALT }} -e USER_EMAIL=${{ secrets.USER_EMAIL }} -e USER_EMAIL_PASSWORD=${{ secrets.USER_EMAIL_PASSWORD }} -e JWT_SECRET=${{ secrets.JWT_SECRET }} -e ADMIN_CLIENT_URL=${{ secrets.ADMIN_CLIENT_URL }} ${{ secrets.DOCKER_ADMIN_USERNAME }}/ecommerceapp:latest
+          sudo docker stop ecommerceappmain || true
+          sudo docker rm ecommerceappmain || true
+          sudo docker run -d --name ecommerceappmain -p 3000:3000 -e NEXTAUTH_SECRET=${{ secrets.NEXTAUTH_SECRET }} -e GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }} -e GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }} -e NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }} -p 3001:3001 -e DATABASE_URL=${{ secrets.DATABASE_URL }} -e SALT=${{ secrets.SALT }} -e USER_EMAIL=${{ secrets.USER_EMAIL }} -e USER_EMAIL_PASSWORD=${{ secrets.USER_EMAIL_PASSWORD }} -e JWT_SECRET=${{ secrets.JWT_SECRET }} -e ADMIN_CLIENT_URL=${{ secrets.ADMIN_CLIENT_URL }} ${{ secrets.DOCKER_ADMIN_USERNAME }}/ecommerceapp:latest
