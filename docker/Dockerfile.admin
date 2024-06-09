@@ -15,5 +15,4 @@ RUN npm run validation-build
 RUN npm run admin-app-build
 RUN npm run server-build
 
-
 CMD [ "npm","run","start:all" ]
